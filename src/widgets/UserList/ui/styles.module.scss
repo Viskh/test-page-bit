@@ -1,0 +1,39 @@
+.container {
+  flex-grow: 1;
+  background-color: var(--secondary-dark);
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  border-bottom: 1px solid var(--primary-border);
+  padding: 24px 0;
+
+  .header__title {
+    margin: 0 24px;
+  }
+}
+
+.list__container {
+  flex: 1;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.list {
+  width: 100%;
+  flex-grow: 1;
+  flex-basis: 0;
+  font-size: 32px;
+  position: relative;
+  overflow-y: auto;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

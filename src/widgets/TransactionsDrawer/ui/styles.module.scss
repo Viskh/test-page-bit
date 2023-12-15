@@ -1,0 +1,13 @@
+.content {
+  height: 100%;
+  padding: 50px 20px;
+}
+
+.list {
+  width: 100%;
+  flex-grow: 1;
+  flex-basis: 0;
+  font-size: 32px;
+  position: relative;
+  overflow-y: auto;
+}

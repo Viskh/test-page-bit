@@ -1,0 +1,47 @@
+.text {
+  font-size: 14px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.family {
+  font-family: IBMPlexSans, sans-serif;
+
+  &_regular {
+    font-family: IBMPlexSans, sans-serif;
+  }
+
+  &_medium {
+    font-family: IBMPlexSans-Medium;
+  }
+
+  &_semibold {
+    font-family: IBMPlexSans-Semibold;
+  }
+}
+
+.align {
+  &_left {
+    text-align: left;
+  }
+
+  &_center {
+    text-align: center;
+  }
+
+  &_right {
+    text-align: right;
+  }
+}
+
+.textColors {
+  &-primary {
+    color: var(--primary-text);
+  }
+
+  &-secondary {
+    color: var(--secondary-text);
+  }
+}

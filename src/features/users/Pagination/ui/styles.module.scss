@@ -1,0 +1,46 @@
+.container {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+}
+
+.page {
+  padding: 6px 14px;
+  text-align: center;
+  margin: auto 4px;
+  color: var(--primary-text);
+  border-radius: 8px;
+  font-size: 16px;
+
+  &:hover {
+    background-color: var(--primary-hover);
+    cursor: pointer;
+  }
+}
+
+.arrow__left {
+  rotate: (180deg);
+}
+
+.arrow__left,
+.arrow__right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.disabled {
+  &:hover {
+    background-color: inherit;
+    cursor: default;
+  }
+}
+
+.separator:hover {
+  background-color: transparent;
+  cursor: default;
+}
+
+.selected {
+  background-color: var(--primary-blue);
+}

@@ -1,0 +1,13 @@
+.select__down {
+  & > svg > path {
+    fill: var(--primary-blue);
+  }
+}
+
+.select__up {
+  rotate: (180deg);
+
+  & > svg > path {
+    fill: var(--primary-blue);
+  }
+}
