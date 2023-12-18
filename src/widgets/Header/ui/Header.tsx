@@ -1,5 +1,5 @@
 import { ShowLogin } from "features/users/ShowLogin";
-import BagIcon from "shared/icons/organization.svg";
+import { ShowOrganization } from "features/users/ShowOrganization";
 import { Container } from "shared/ui/Container";
 import { Text } from "shared/ui/Text";
 
@@ -7,22 +7,16 @@ import styles from "./styles.module.scss";
 
 export const Header = () => {
   return (
-    <header className={styles.header}>
-      <Container gap={44} align="center">
+    <Container align="center" justify="center" className={styles.header}>
+      <Container gap={44} align="center" className={styles.header__left}>
         <Text size={22} bold>
           BitTest
         </Text>
 
-        <Container align="center" gap={10}>
-          <BagIcon />
-
-          <Text size={16}>Моя организация</Text>
-        </Container>
+        <ShowOrganization />
       </Container>
 
-      <Container justify="flex-end" align="center">
-        <ShowLogin />
-      </Container>
-    </header>
+      <ShowLogin />
+    </Container>
   );
 };

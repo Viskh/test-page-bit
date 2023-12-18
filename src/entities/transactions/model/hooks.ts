@@ -1,5 +1,8 @@
 import { useAppSelector } from "shared/hooks";
 
-import { selectTransactions } from "./selectors";
+import { selectFilteredTransaction, selectTransactions } from "./selectors";
 
 export const useSelectTransactions = () => useAppSelector(selectTransactions);
+
+export const useSelectFilteredTransactions = () =>
+  useAppSelector(selectFilteredTransaction);

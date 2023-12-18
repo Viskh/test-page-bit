@@ -7,20 +7,23 @@ import styles from "./styles.module.scss";
 
 export const ShowLogin = () => {
   return (
-    <div className={styles.container}>
-      <Container gap={12} justify="center">
-        <Button>
-          <Avatar />
-        </Button>
+    <Container
+      gap={12}
+      justify="center"
+      align="center"
+      className={styles.container}
+    >
+      <Button>
+        <Avatar />
+      </Button>
 
-        <Container flexDirection="column" className={styles.titles}>
-          <Text size={12} color="secondary">
-            Вы авторизованы
-          </Text>
+      <Container flexDirection="column" className={styles.titles}>
+        <Text size={12} color="secondary">
+          Вы авторизованы
+        </Text>
 
-          <Text size={14}>Администратор</Text>
-        </Container>
+        <Text size={14}>Администратор</Text>
       </Container>
-    </div>
+    </Container>
   );
 };

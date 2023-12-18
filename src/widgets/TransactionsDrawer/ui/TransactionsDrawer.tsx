@@ -21,12 +21,14 @@ export const TransactionsDrawer: FC<TransactionsDrawer> = ({
 }) => {
   const { selectedUser } = useSelectSelectedUser();
 
-  const { transactions } = useFetch({ userId: selectedUser?.id });
+  const { transactions, filteredTransactions } = useFetch({
+    userId: selectedUser?.id,
+  });
 
   if (!selectedUser) return null;
 
   return (
-    <Drawer isOpen={isOpen} onClose={onClose}>
+    <Drawer isOpen={isOpen} onClose={onClose} className={styles.drawer}>
       <Container flexDirection="column" className={styles.content}>
         <Container gap={20} flexDirection="column">
           <Container justify="space-between" align="center">
@@ -44,7 +46,10 @@ export const TransactionsDrawer: FC<TransactionsDrawer> = ({
           </Text>
         </Container>
 
-        <ChartTransactions transactions={transactions} />
+        <div className={styles.chart}>
+          <ChartTransactions transactions={filteredTransactions} />
+        </div>
+
         <div className={styles.list}>
           <TransactionsTable transactions={transactions} />
         </div>

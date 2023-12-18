@@ -9,6 +9,8 @@ type UseFetchParams = {
 export const useFetch = ({ userId }: UseFetchParams) => {
   const dispatch = useAppDispatch();
 
+  const filteredTransactions =
+    transactionsModel.hooks.useSelectFilteredTransactions();
   const transactions = transactionsModel.hooks.useSelectTransactions();
 
   useEffect(() => {
@@ -27,5 +29,6 @@ export const useFetch = ({ userId }: UseFetchParams) => {
 
   return {
     transactions,
+    filteredTransactions,
   };
 };

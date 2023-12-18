@@ -1,0 +1,7 @@
+@use "shared/styles/mixins.scss";
+
+.container {
+  @include mixins.for-mobile {
+    width: auto;
+  }
+}

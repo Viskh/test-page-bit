@@ -1,22 +1,40 @@
-export type Provider = "YOOMONEY" | "CRYPTO" | "SYSTEM";
+export enum ProviderTransaction {
+  YOOMONEY = "YOOMONEY",
+  CRYPTO = "CRYPTO",
+  SYSTEM = "SYSTEM",
+}
 
-export type Currency = "RUB" | "USD" | "EUR" | "SYSTEM_TOKEN";
+export enum CurrencyTransaction {
+  RUB = "RUB",
+  USD = "USD",
+  EUR = "EUR",
+  SYSTEM_TOKEN = "SYSTEM_TOKEN",
+}
 
-export type Status = "FAILED" | "SUCCEDED" | "PENDING";
+export enum StatusTransaction {
+  FAILED = "FAILED",
+  SUCCEDED = "SUCCEDED",
+  PENDING = "PENDING",
+}
 
-export type Type = "SUBSCRIPTION" | "WRITE_OFF" | "REPLENISH" | "WITHDRAW";
+export enum TypeTransaction {
+  SUBSCRIPTION = "SUBSCRIPTION",
+  WRITE_OFF = "WRITE_OFF",
+  REPLENISH = "REPLENISH",
+  WITHDRAW = "WITHDRAW",
+}
 
 export type Transaction = {
   id: string;
-  provider: Provider;
-  currency: Currency;
-  meta: Record<string, string>;
-  amount: 0;
-  status: Status;
-  type: Type;
-  plan_id: string;
+  provider: ProviderTransaction;
+  currency: CurrencyTransaction;
+  meta: Record<string, string> | null;
+  amount: number;
+  status: StatusTransaction;
+  type: TypeTransaction;
+  plan_id: string | null;
   user_id: string;
-  referral_id: string;
-  external_id: string;
+  referral_id: string | null;
+  external_id: string | null;
   created_at: string;
 };

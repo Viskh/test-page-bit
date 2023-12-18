@@ -1,9 +1,17 @@
+@use "shared/styles/mixins.scss";
+
 .header {
-  width: 100%;
   background-color: var(--secondary-dark);
   border-radius: 17px;
   padding: 15px 25px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+
+  @include mixins.for-mobile {
+    padding: 15px 20px;
+  }
+}
+
+.header__left {
+  @include mixins.for-mobile {
+    justify-content: space-between !important;
+  }
 }

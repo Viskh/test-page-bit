@@ -32,20 +32,20 @@ export const Row: FC<RowProps> = ({
   };
 
   return (
-    <tr onClick={onClick}>
-      <td>
+    <tr>
+      <td onClick={onClick}>
         <Text align="center">{email}</Text>
       </td>
-      <td>
+      <td onClick={onClick}>
         <Text align="center">{name}</Text>
       </td>
-      <td>
+      <td onClick={onClick}>
         <Text align="center">{role}</Text>
       </td>
-      <td>
+      <td onClick={onClick}>
         <Text align="center">{type}</Text>
       </td>
-      <td>
+      <td onClick={onClick}>
         <Text align="center">{tokens} TKN</Text>
       </td>
       <td>

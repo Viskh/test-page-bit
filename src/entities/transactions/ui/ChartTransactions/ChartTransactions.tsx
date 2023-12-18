@@ -1,65 +1,8 @@
 import { FC } from "react";
-import { Line } from "react-chartjs-2";
-import {
-  CategoryScale,
-  Chart as ChartJS,
-  ChartData,
-  Filler,
-  Legend,
-  LinearScale,
-  LineElement,
-  PointElement,
-  ScaleChartOptions,
-  Title,
-  Tooltip,
-} from "chart.js";
+import { graphic } from "echarts";
+import ReactECharts from "echarts-for-react";
 import { Transaction } from "shared/api";
-
-import { formatDate } from "./utils/formatDate";
-
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Filler,
-  Legend,
-);
-
-export const options = {
-  responsive: true,
-  plugins: {
-    legend: {
-      display: false,
-    },
-  },
-  scales: {
-    rightYAxis: {
-      position: "right",
-      beginAtZero: true,
-    },
-  } as Partial<ScaleChartOptions<"line">>,
-};
-
-export const getData = (transactions: Transaction[]): ChartData<"line"> => {
-  return {
-    labels: Array.from({ length: 24 }, (_, index) => `${index + 1}ч`),
-    datasets: [
-      {
-        fill: true,
-        label: "",
-        data: transactions.map((item) => item.amount),
-        borderWidth: 1,
-        borderColor: "rgba(0, 123, 255, 1)",
-        backgroundColor: "rgba(0, 123, 255, 0.5)",
-        pointStyle: false,
-        yAxisID: "rightYAxis",
-      },
-    ],
-  };
-};
+import { formatDate } from "shared/lib";
 
 type ChartTransactionsProps = {
   transactions: Transaction[];
@@ -68,7 +11,54 @@ type ChartTransactionsProps = {
 export const ChartTransactions: FC<ChartTransactionsProps> = ({
   transactions,
 }) => {
-  const data = getData(transactions);
+  const options = {
+    tooltip: {
+      trigger: "axis",
+      position: function (pt: any) {
+        return [pt[0], "10%"];
+      },
+    },
+    xAxis: {
+      data: transactions.map(({ created_at }) =>
+        formatDate({ date: created_at, formatDate: "dd LLL yyyy" }),
+      ),
+      boundaryGap: false,
+    },
+    yAxis: {
+      type: "value",
+      position: "right",
+    },
+    dataZoom: [
+      {
+        type: "inside",
+        start: 0,
+        end: 20,
+      },
+      {
+        start: 0,
+        end: 20,
+      },
+    ],
+    series: [
+      {
+        type: "line",
+        symbol: "none",
+        areaStyle: {
+          color: new graphic.LinearGradient(0, 0, 0, 1, [
+            {
+              offset: 0,
+              color: "rgba(28, 100, 242, 1)",
+            },
+            {
+              offset: 1,
+              color: "rgba(28, 100, 242, 0.2)",
+            },
+          ]),
+        },
+        data: transactions.map((item) => item.amount),
+      },
+    ],
+  };
 
-  return <Line options={options} data={data} height={250} />;
+  return <ReactECharts option={options} style={{ width: "400%" }} />;
 };

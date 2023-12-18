@@ -1,4 +1,4 @@
-import { Currency } from "../transactions";
+import { CurrencyTransaction } from "../transactions";
 
 export type User = {
   id: string;
@@ -11,9 +11,17 @@ export type User = {
   subscription: Subscription;
 };
 
-export type Role = "USER" | "ADMIN";
+export enum Role {
+  USER = "USER",
+  ADMIN = "ADMIN",
+}
 
-export type TypeSubscription = "FREE" | "BASIC" | "PREMIUM" | "ELITE";
+export enum TypeSubscription {
+  FREE = "FREE",
+  BASIC = "BASIC",
+  PREMIUM = "PREMIUM",
+  ELITE = "ELITE",
+}
 
 export type Subscription = {
   id: string;
@@ -29,6 +37,6 @@ export type Plan = {
   id: string;
   type: TypeSubscription;
   price: number;
-  currency: Currency;
+  currency: CurrencyTransaction;
   tokens: number;
 };
