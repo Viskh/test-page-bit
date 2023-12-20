@@ -1,9 +1,9 @@
 const path = require("path");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const Dotenv = require("dotenv-webpack");
-require('dotenv').config({ path: './.env' });
+require("dotenv").config({ path: "./.env" });
 
 const production = process.env.NODE_ENV === "production";
 
@@ -25,8 +25,8 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: production ? '[name].[contenthash].js' : '[name].js',
-    publicPath: "./",
+    filename: production ? "[name].[contenthash].js" : "[name].js",
+    publicPath: production ? "./" : "/",
   },
   target: "web",
   resolve: {
@@ -94,7 +94,7 @@ module.exports = {
     }),
   ],
   devServer: {
-    port: 3000,
+    port: 3001,
     hot: true,
     historyApiFallback: true,
   },
