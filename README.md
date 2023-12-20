@@ -1,6 +1,6 @@
 .env: 
 ```js
-  NODE_ENV="development"
+  NODE_ENV=development
   BASE_URL= // your api
 ```
 
